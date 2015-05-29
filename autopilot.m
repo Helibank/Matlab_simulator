@@ -92,6 +92,9 @@ function y = autopilot(uu,P)
             if h>=h_c-P.altitude_hold_zone,
                 altitude_state = 4;
                 initialize_integrator = 1;
+            elseif h<=P.altitude_take_off_zone,
+                altitude_state = 1;
+                initialize_integrator = 1;
             else
                 initialize_integrator = 0;
             end
@@ -168,12 +171,10 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function phi_c = course_hold(chi_c, chi, r, flag, P)
   persistent integrator;
-  persistent differentiator;
   persistent error_d1;
   % initialize persistent variables at beginning of simulation
   if flag==1,
       integrator = 0; 
-      differentiator = 0;
       error_d1   = 0; 
   end
  
@@ -183,10 +184,6 @@ function phi_c = course_hold(chi_c, chi, r, flag, P)
   % update the integrator
   integrator = integrator + (P.Ts/2)*(error + error_d1); % trapazoidal rule
   
-  % update the differentiator
-  differentiator = (2*P.tau-P.Ts)/(2*P.tau+P.Ts)*differentiator...
-      + (2/(2*P.tau+P.Ts))*(error - error_d1);
-  
   % proportional term
   up = P.course_kp * error;
   
@@ -194,7 +191,7 @@ function phi_c = course_hold(chi_c, chi, r, flag, P)
   ui = P.course_ki * integrator;
   
   % derivative term
-  ud = P.course_kd * differentiator;
+  ud = P.course_kd * r;
   
   
   % implement PID control
@@ -218,12 +215,10 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function delta_a = roll_hold(phi_c, phi, p, flag, P)
   persistent integrator;
-  persistent differentiator;
   persistent error_d1;
   % initialize persistent variables at beginning of simulation
   if flag==1,
       integrator = 0; 
-      differentiator = 0;
       error_d1   = 0; 
   end
  
@@ -233,10 +228,6 @@ function delta_a = roll_hold(phi_c, phi, p, flag, P)
   % update the integrator
   integrator = integrator + (P.Ts/2)*(error + error_d1); % trapazoidal rule
   
-  % update the differentiator
-  differentiator = (2*P.tau-P.Ts)/(2*P.tau+P.Ts)*differentiator...
-      + (2/(2*P.tau+P.Ts))*(error - error_d1);
-  
   % proportional term
   up = P.roll_kp * error;
   
@@ -244,7 +235,7 @@ function delta_a = roll_hold(phi_c, phi, p, flag, P)
   ui = P.roll_ki * integrator;
   
   % derivative term
-  ud = P.roll_kd * differentiator;
+  ud = P.roll_kd * p;
   
   
   % implement PID control
@@ -267,12 +258,10 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function delta_e = pitch_hold(theta_c, theta, q, flag, P)
   persistent integrator;
-  persistent differentiator;
   persistent error_d1;
   % initialize persistent variables at beginning of simulation
   if flag==1,
       integrator = 0; 
-      differentiator = 0;
       error_d1   = 0; 
   end
  
@@ -282,10 +271,6 @@ function delta_e = pitch_hold(theta_c, theta, q, flag, P)
   % update the integrator
   integrator = integrator + (P.Ts/2)*(error + error_d1); % trapazoidal rule
   
-  % update the differentiator
-  differentiator = (2*P.tau-P.Ts)/(2*P.tau+P.Ts)*differentiator...
-      + (2/(2*P.tau+P.Ts))*(error - error_d1);
-  
   % proportional term
   up = P.pitch_kp * error;
   
@@ -293,7 +278,7 @@ function delta_e = pitch_hold(theta_c, theta, q, flag, P)
   ui = P.pitch_ki * integrator;
   
   % derivative term
-  ud = P.pitch_kd * differentiator;
+  ud = P.pitch_kd * q;
   
   
   % implement PID control

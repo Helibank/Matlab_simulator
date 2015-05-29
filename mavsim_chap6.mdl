@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.193"
+    ComputedModelVersion    "1.198"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,7 +29,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [484.0, 204.0, 1042.0, 589.0]
+      Location		      [319.0, 448.0, 1042.0, 589.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -48,13 +48,13 @@ Model {
       }
       Array {
 	Type			"Simulink.EditorInfo"
-	Dimension		4
+	Dimension		3
 	Object {
 	  $ObjectID		  5
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1006.0, 444.0]
+	  Extents		  [986.0, 396.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, 0.0]
 	}
@@ -72,18 +72,9 @@ Model {
 	  IsActive		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1"
-	  Extents		  [1006.0, 444.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-163.97857142857117, 26.049999999999955]
-	}
-	Object {
-	  $ObjectID		  8
-	  IsActive		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "32"
 	  Extents		  [986.0, 396.0]
 	  ZoomFactor		  [1.0]
-	  Offset		  [0.0, 0.0]
+	  Offset		  [-124.7014201121674, 35.26315255761142]
 	}
 	PropName		"EditorsInfo"
       }
@@ -95,9 +86,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gary"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue May 26 14:12:11 2015"
-  RTWModifiedTimeStamp	  354550201
-  ModelVersionFormat	  "1.%<AutoIncrement:193>"
+  LastModifiedDate	  "Fri May 29 17:47:14 2015"
+  RTWModifiedTimeStamp	  354822433
+  ModelVersionFormat	  "1.%<AutoIncrement:198>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -138,7 +129,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    9
+    $ObjectID		    8
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "mavsim_chap6"
     Array {
@@ -202,13 +193,13 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      10
+      $ObjectID		      9
       Version		      "1.15.0"
       Array {
 	Type			"Handle"
 	Dimension		8
 	Simulink.SolverCC {
-	  $ObjectID		  11
+	  $ObjectID		  10
 	  Version		  "1.15.0"
 	  StartTime		  "0.0"
 	  StopTime		  "10000"
@@ -243,7 +234,7 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  12
+	  $ObjectID		  11
 	  Version		  "1.15.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
@@ -276,7 +267,7 @@ Model {
 	  Refine		  "1"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  13
+	  $ObjectID		  12
 	  Version		  "1.15.0"
 	  Array {
 	    Type		    "Cell"
@@ -329,7 +320,7 @@ Model {
 	  AccelVerboseBuild	  off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  14
+	  $ObjectID		  13
 	  Version		  "1.15.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
@@ -418,7 +409,7 @@ Model {
 	  IntegerSaturationMsg	  "warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  15
+	  $ObjectID		  14
 	  Version		  "1.15.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
@@ -458,7 +449,7 @@ Model {
 	  ProdEqTarget		  on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  16
+	  $ObjectID		  15
 	  Version		  "1.15.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
@@ -473,7 +464,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  17
+	  $ObjectID		  16
 	  Version		  "1.15.0"
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -486,7 +477,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  18
+	  $ObjectID		  17
 	  Version		  "1.15.0"
 	  Array {
 	    Type		    "Cell"
@@ -552,7 +543,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      19
+	      $ObjectID		      18
 	      Version		      "1.15.0"
 	      Array {
 		Type			"Cell"
@@ -616,7 +607,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      20
+	      $ObjectID		      19
 	      Version		      "1.15.0"
 	      Array {
 		Type			"Cell"
@@ -710,11 +701,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    10
+    $ObjectID		    9
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    21
+    $ObjectID		    20
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -899,14 +890,6 @@ Model {
       InitialOutput	      "[]"
     }
     Block {
-      BlockType		      S-Function
-      FunctionName	      "system"
-      SFunctionModules	      "''"
-      PortCounts	      "[]"
-      SFunctionDeploymentMode off
-      EnableBusSupport	      off
-    }
-    Block {
       BlockType		      SubSystem
       ShowPortLabels	      "FromPortIcon"
       Permissions	      "ReadWrite"
@@ -953,7 +936,7 @@ Model {
   }
   System {
     Name		    "mavsim_chap6"
-    Location		    [514, 403, 1556, 992]
+    Location		    [319, 448, 1361, 1037]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -967,7 +950,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "101"
+    SIDHighWatermark	    "104"
     Block {
       BlockType		      SubSystem
       Name		      "Autopilot"
@@ -978,13 +961,13 @@ Model {
       RequestExecContextInheritance off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		22
+	$ObjectID		21
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('kestrel.jpg'))"
       }
       System {
 	Name			"Autopilot"
-	Location		[484, 204, 1526, 793]
+	Location		[319, 448, 1361, 1037]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1099,24 +1082,15 @@ Model {
 	  DisplayOption		  "bar"
 	}
 	Block {
-	  BlockType		  S-Function
-	  Name			  "S-Function1"
-	  SID			  "99"
-	  Ports			  [1, 1]
-	  Position		  [440, 92, 500, 128]
-	  ZOrder		  6
-	  ShowName		  off
-	  FunctionName		  "MATLink"
-	}
-	Block {
 	  BlockType		  MATLABFcn
-	  Name			  "mavlinkReceiveControls"
-	  SID			  "100"
+	  Name			  "autopilot"
+	  SID			  "104"
 	  Ports			  [1, 1]
-	  Position		  [550, 95, 620, 125]
-	  ZOrder		  8
-	  MATLABFcn		  "mavlinkReceiveControls(u,P)"
+	  Position		  [450, 200, 510, 230]
+	  ZOrder		  20
+	  MATLABFcn		  "autopilot(u,P)"
 	  OutputDimensions	  "4+12"
+	  SampleTime		  "P.Ts"
 	}
 	Block {
 	  BlockType		  MATLABFcn
@@ -1145,10 +1119,10 @@ Model {
 	  DstPort		  3
 	}
 	Line {
-	  ZOrder		  54
-	  SrcBlock		  "mavlinkReceiveControls"
+	  ZOrder		  74
+	  SrcBlock		  "autopilot"
 	  SrcPort		  1
-	  Points		  [25, 0; 0, 36; -115, 0]
+	  Points		  [15, 0; 0, 55]
 	  DstBlock		  "Demux"
 	  DstPort		  1
 	}
@@ -1226,18 +1200,11 @@ Model {
 	  DstPort		  3
 	}
 	Line {
-	  ZOrder		  52
+	  ZOrder		  75
 	  SrcBlock		  "Mux"
 	  SrcPort		  1
-	  Points		  [20, 0]
-	  DstBlock		  "S-Function1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  16
-	  SrcBlock		  "S-Function1"
-	  SrcPort		  1
-	  DstBlock		  "mavlinkReceiveControls"
+	  Points		  [20, 0; 0, -55]
+	  DstBlock		  "autopilot"
 	  DstPort		  1
 	}
       }
@@ -1294,13 +1261,13 @@ Model {
       RequestExecContextInheritance off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		23
+	$ObjectID		22
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('batcam.png'))"
       }
       System {
 	Name			"MAV"
-	Location		[434, 370, 1476, 959]
+	Location		[319, 448, 1361, 1037]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1341,48 +1308,48 @@ Model {
 	  Parameters		  "mass,Jx,Jy,Jz,Jxz,pn0,pe0,pd0,u0,v0,w0,phi0,theta0,psi0,p0,q0,r0"
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    24
+	    $ObjectID		    23
 	    $ClassName		    "Simulink.Mask"
 	    Array {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      17
 	      Object {
-		$ObjectID		25
+		$ObjectID		24
 		Type			"edit"
 		Name			"mass"
 		Prompt			"Mass"
 		Value			"P.mass"
 	      }
 	      Object {
-		$ObjectID		26
+		$ObjectID		25
 		Type			"edit"
 		Name			"Jx"
 		Prompt			"Jx"
 		Value			"P.Jx"
 	      }
 	      Object {
-		$ObjectID		27
+		$ObjectID		26
 		Type			"edit"
 		Name			"Jy"
 		Prompt			"Jy"
 		Value			"P.Jy"
 	      }
 	      Object {
-		$ObjectID		28
+		$ObjectID		27
 		Type			"edit"
 		Name			"Jz"
 		Prompt			"Jz"
 		Value			"P.Jz"
 	      }
 	      Object {
-		$ObjectID		29
+		$ObjectID		28
 		Type			"edit"
 		Name			"Jxz"
 		Prompt			"Jxz"
 		Value			"P.Jxz"
 	      }
 	      Object {
-		$ObjectID		30
+		$ObjectID		29
 		Type			"edit"
 		Name			"pn0"
 		Prompt			"Initial north position"
@@ -1390,7 +1357,7 @@ Model {
 		Tunable			"off"
 	      }
 	      Object {
-		$ObjectID		31
+		$ObjectID		30
 		Type			"edit"
 		Name			"pe0"
 		Prompt			"Initial east position"
@@ -1398,7 +1365,7 @@ Model {
 		Tunable			"off"
 	      }
 	      Object {
-		$ObjectID		32
+		$ObjectID		31
 		Type			"edit"
 		Name			"pd0"
 		Prompt			"Initial down position"
@@ -1406,7 +1373,7 @@ Model {
 		Tunable			"off"
 	      }
 	      Object {
-		$ObjectID		33
+		$ObjectID		32
 		Type			"edit"
 		Name			"u0"
 		Prompt			"Initial velocity u0"
@@ -1414,7 +1381,7 @@ Model {
 		Tunable			"off"
 	      }
 	      Object {
-		$ObjectID		34
+		$ObjectID		33
 		Type			"edit"
 		Name			"v0"
 		Prompt			"Initial velocity v0"
@@ -1422,7 +1389,7 @@ Model {
 		Tunable			"off"
 	      }
 	      Object {
-		$ObjectID		35
+		$ObjectID		34
 		Type			"edit"
 		Name			"w0"
 		Prompt			"Initial velocity w0"
@@ -1430,7 +1397,7 @@ Model {
 		Tunable			"off"
 	      }
 	      Object {
-		$ObjectID		36
+		$ObjectID		35
 		Type			"edit"
 		Name			"phi0"
 		Prompt			"Initial bank angle"
@@ -1438,7 +1405,7 @@ Model {
 		Tunable			"off"
 	      }
 	      Object {
-		$ObjectID		37
+		$ObjectID		36
 		Type			"edit"
 		Name			"theta0"
 		Prompt			"Initial elevation angle"
@@ -1446,7 +1413,7 @@ Model {
 		Tunable			"off"
 	      }
 	      Object {
-		$ObjectID		38
+		$ObjectID		37
 		Type			"edit"
 		Name			"psi0"
 		Prompt			"Initial heading angle"
@@ -1454,7 +1421,7 @@ Model {
 		Tunable			"off"
 	      }
 	      Object {
-		$ObjectID		39
+		$ObjectID		38
 		Type			"edit"
 		Name			"p0"
 		Prompt			"Initial roll rate"
@@ -1462,7 +1429,7 @@ Model {
 		Tunable			"off"
 	      }
 	      Object {
-		$ObjectID		40
+		$ObjectID		39
 		Type			"edit"
 		Name			"q0"
 		Prompt			"Initial pitch rate"
@@ -1470,7 +1437,7 @@ Model {
 		Tunable			"off"
 	      }
 	      Object {
-		$ObjectID		41
+		$ObjectID		40
 		Type			"edit"
 		Name			"r0"
 		Prompt			"Initial yaw rate"
@@ -1491,7 +1458,7 @@ Model {
 	  RequestExecContextInheritance	off
 	  System {
 	    Name		    "Forces & Moments"
-	    Location		    [795, 260, 1291, 696]
+	    Location		    [319, 448, 1361, 1037]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1600,15 +1567,14 @@ Model {
 	      ZOrder		      2
 	      SrcBlock		      "delta"
 	      SrcPort		      1
-	      Points		      [15, 0]
+	      Points		      [5, 0]
 	      Branch {
-		ZOrder			3
+		ZOrder			10
 		DstBlock		"Mux"
 		DstPort			2
 	      }
 	      Branch {
 		ZOrder			4
-		Points			[-10, 0]
 		DstBlock		"Goto"
 		DstPort			1
 	      }
@@ -1764,8 +1730,8 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Wind"
-	Location		[514, 375, 1556, 964]
-	Open			on
+	Location		[319, 448, 1361, 1037]
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2048,7 +2014,7 @@ Model {
       SourceType	      "Slider Gain"
       ContentPreviewEnabled   off
       low		      "0"
-      gain		      "70"
+      gain		      "200"
       high		      "500"
     }
     Block {
@@ -2063,7 +2029,7 @@ Model {
       SourceType	      "Slider Gain"
       ContentPreviewEnabled   off
       low		      "-360"
-      gain		      "-90"
+      gain		      "0"
       high		      "360"
     }
     Block {
@@ -2076,7 +2042,7 @@ Model {
       RequestExecContextInheritance off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		42
+	$ObjectID		41
 	$ClassName		"Simulink.Mask"
 	Initialization		"% parameters for drawing aircraft\n  % scale size\n  size = 20;\n  fuse_l1    = 7;\n  fuse_l2    = 4"
 	";\n  fuse_l3    = 15;\n  fuse_w     = 2;\n  wing_l     = 6;\n  wing_w     = 20;\n  tail_l     = 3;\n  tail_h     = 3;"
@@ -2104,7 +2070,7 @@ Model {
       }
       System {
 	Name			"draw aircraft"
-	Location		[514, 375, 1556, 964]
+	Location		[319, 448, 1361, 1037]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
