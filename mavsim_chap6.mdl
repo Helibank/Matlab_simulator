@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.198"
+    ComputedModelVersion    "1.201"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,7 +29,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [319.0, 448.0, 1042.0, 589.0]
+      Location		      [1335.0, 87.0, 1042.0, 589.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -51,10 +51,10 @@ Model {
 	Dimension		3
 	Object {
 	  $ObjectID		  5
-	  IsActive		  [0]
+	  IsActive		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [986.0, 396.0]
+	  Extents		  [1006.0, 444.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, 0.0]
 	}
@@ -69,10 +69,10 @@ Model {
 	}
 	Object {
 	  $ObjectID		  7
-	  IsActive		  [1]
+	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1"
-	  Extents		  [986.0, 396.0]
+	  Extents		  [1006.0, 444.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [-124.7014201121674, 35.26315255761142]
 	}
@@ -86,9 +86,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gary"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri May 29 17:47:14 2015"
-  RTWModifiedTimeStamp	  354822433
-  ModelVersionFormat	  "1.%<AutoIncrement:198>"
+  LastModifiedDate	  "Tue Jun 09 08:47:11 2015"
+  RTWModifiedTimeStamp	  355740426
+  ModelVersionFormat	  "1.%<AutoIncrement:201>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -890,6 +890,14 @@ Model {
       InitialOutput	      "[]"
     }
     Block {
+      BlockType		      S-Function
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+      SFunctionDeploymentMode off
+      EnableBusSupport	      off
+    }
+    Block {
       BlockType		      SubSystem
       ShowPortLabels	      "FromPortIcon"
       Permissions	      "ReadWrite"
@@ -936,7 +944,7 @@ Model {
   }
   System {
     Name		    "mavsim_chap6"
-    Location		    [319, 448, 1361, 1037]
+    Location		    [1335, 87, 2377, 676]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -950,7 +958,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "104"
+    SIDHighWatermark	    "107"
     Block {
       BlockType		      SubSystem
       Name		      "Autopilot"
@@ -967,7 +975,7 @@ Model {
       }
       System {
 	Name			"Autopilot"
-	Location		[319, 448, 1361, 1037]
+	Location		[1335, 87, 2377, 676]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1082,15 +1090,24 @@ Model {
 	  DisplayOption		  "bar"
 	}
 	Block {
-	  BlockType		  MATLABFcn
-	  Name			  "autopilot"
-	  SID			  "104"
+	  BlockType		  S-Function
+	  Name			  "S-Function1"
+	  SID			  "106"
 	  Ports			  [1, 1]
-	  Position		  [450, 200, 510, 230]
+	  Position		  [480, 87, 540, 123]
+	  ZOrder		  19
+	  ShowName		  off
+	  FunctionName		  "MATLink"
+	}
+	Block {
+	  BlockType		  MATLABFcn
+	  Name			  "receiveControls"
+	  SID			  "107"
+	  Ports			  [1, 1]
+	  Position		  [565, 90, 635, 120]
 	  ZOrder		  20
-	  MATLABFcn		  "autopilot(u,P)"
+	  MATLABFcn		  "receiveControls(u,P)"
 	  OutputDimensions	  "4+12"
-	  SampleTime		  "P.Ts"
 	}
 	Block {
 	  BlockType		  MATLABFcn
@@ -1119,10 +1136,10 @@ Model {
 	  DstPort		  3
 	}
 	Line {
-	  ZOrder		  74
-	  SrcBlock		  "autopilot"
+	  ZOrder		  87
+	  SrcBlock		  "receiveControls"
 	  SrcPort		  1
-	  Points		  [15, 0; 0, 55]
+	  Points		  [9, 0; 0, 41; -113, 0; 0, 124]
 	  DstBlock		  "Demux"
 	  DstPort		  1
 	}
@@ -1200,11 +1217,18 @@ Model {
 	  DstPort		  3
 	}
 	Line {
-	  ZOrder		  75
+	  ZOrder		  81
+	  SrcBlock		  "S-Function1"
+	  SrcPort		  1
+	  DstBlock		  "receiveControls"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  84
 	  SrcBlock		  "Mux"
 	  SrcPort		  1
-	  Points		  [20, 0; 0, -55]
-	  DstBlock		  "autopilot"
+	  Points		  [45, 0; 0, -165]
+	  DstBlock		  "S-Function1"
 	  DstPort		  1
 	}
       }
@@ -2014,7 +2038,7 @@ Model {
       SourceType	      "Slider Gain"
       ContentPreviewEnabled   off
       low		      "0"
-      gain		      "200"
+      gain		      "100"
       high		      "500"
     }
     Block {
@@ -2070,7 +2094,7 @@ Model {
       }
       System {
 	Name			"draw aircraft"
-	Location		[319, 448, 1361, 1037]
+	Location		[1335, 66, 2377, 655]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200

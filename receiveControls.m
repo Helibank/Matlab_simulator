@@ -6,11 +6,12 @@ function y = receiveControls(u,P)
  delta_e = u(4);
  delta_r = u(5);
  delta_t = u(6);
- h_c = 0;
- Va_c = 0;
  phi_c = 0;
  theta_c = 0;
- chi_c = 0;
+ Va_c = u(9);
+ h_c = u(10);
+ chi_c = u(11);
+ 
  
  
  % control outputs
