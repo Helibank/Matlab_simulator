@@ -182,7 +182,11 @@ function phi_c = course_hold(chi_c, chi, r, flag, P)
   error = chi_c - chi;
   
   % update the integrator
-  integrator = integrator + (P.Ts/2)*(error + error_d1); % trapazoidal rule
+  if abs(error)>15*pi/180,
+      integrator = 0;
+  else
+      integrator = integrator + (P.Ts/2)*(error + error_d1); % trapazoidal rule
+  end
   
   % proportional term
   up = P.course_kp * error;
@@ -195,7 +199,7 @@ function phi_c = course_hold(chi_c, chi, r, flag, P)
   
   
   % implement PID control
-  phi_c = sat(up + ui + ud, 30*pi/180, -30*pi/180);
+  phi_c = sat(up + ui + ud, 45*pi/180, -45*pi/180);
   
   % implement integrator anti-wind-up
   if P.course_ki~=0,
@@ -239,7 +243,7 @@ function delta_a = roll_hold(phi_c, phi, p, flag, P)
   
   
   % implement PID control
-  delta_a = sat(up + ui + ud, 30*pi/180, -30*pi/180);
+  delta_a = sat(up + ui + ud, 45*pi/180, -45*pi/180);
   
   % implement integrator anti-wind-up
   if P.roll_ki~=0,
@@ -282,11 +286,11 @@ function delta_e = pitch_hold(theta_c, theta, q, flag, P)
   
   
   % implement PID control
-  delta_e = sat(up + ui + ud, 30*pi/180, -30*pi/180);
+  delta_e = sat(P.u_trim(1) + up + ui + ud, 30*pi/180, -30*pi/180);
   
   % implement integrator anti-wind-up
   if P.pitch_ki~=0,
-      delta_e_unsat = up + ui + ud;
+      delta_e_unsat = P.u_trim(1) + up + ui + ud;
       integrator = integrator + P.Ts/P.pitch_ki * (delta_e - delta_e_unsat);
   end
 
@@ -380,11 +384,11 @@ function delta_t = airspeed_with_throttle_hold(Va_c, Va, flag, P)
   
   
   % implement PID control
-  delta_t = sat(up + ui + ud, 1, 0);
+  delta_t = sat(P.u_trim(4) + up + ui + ud, 1, 0);
   
   % implement integrator anti-wind-up
   if P.airspeed_throttle_ki~=0,
-      delta_t_unsat = up + ui + ud;
+      delta_t_unsat = P.u_trim(4) + up + ui + ud;
       integrator = integrator + P.Ts/P.airspeed_throttle_ki * (delta_t - delta_t_unsat);
   end
 
@@ -507,5 +511,3 @@ function out = sat(in, up_limit, low_limit)
       out = in;
   end
 end
-  
- 
