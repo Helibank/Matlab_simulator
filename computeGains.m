@@ -14,11 +14,12 @@
     
     % set control gains based on zeta and wn
     P.roll_kp = wn_roll^2/a_phi2;
-    P.roll_kd = 1.1*(2*zeta_roll*wn_roll - a_phi1)/a_phi2;
+    P.roll_kd = (2*zeta_roll*wn_roll - a_phi1)/a_phi2;
     P.roll_ki = 0.1;
     
     % add extra roll damping
-    P.roll_kd = P.roll_kd;
+    P.roll_kd = .8*P.roll_kd;
+    P.roll_kp = 1.2*P.roll_kp;
     
     
 % select gains for course loop

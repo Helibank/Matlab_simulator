@@ -25,7 +25,9 @@
 %            5/19/2010 - RB
 %
 
-function xhat = estimate_states_fixed_gain(uu, P)
+function xhat = estimate_states(uu, P)
+%function xhat = estimate_states_fixed_gain(uu, P)
+
 
    % rename inputs
    y_gyro_x      = uu(1);
