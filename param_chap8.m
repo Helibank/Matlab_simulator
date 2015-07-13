@@ -69,7 +69,7 @@ P.Va0 = 11;
 P.Ts = 0.01;
 
 % compute trim conditions using 'mavsim_chap5_trim.mdl'
-P.Va    = 13;         % desired airspeed (m/s)
+P.Va    = 11;         % desired airspeed (m/s)
 gamma = 0*pi/180;  % desired flight path angle (radians)
 R     = 0;         % desired radius (m) - use (+) for right handed orbit, 
                     %                          (-) for left handed orbit

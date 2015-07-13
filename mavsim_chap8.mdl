@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.251"
+    ComputedModelVersion    "1.255"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,7 +29,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [440.0, 318.0, 1042.0, 589.0]
+      Location		      [1844.0, 384.0, 1042.0, 589.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -51,19 +51,19 @@ Model {
 	Dimension		2
 	Object {
 	  $ObjectID		  5
-	  IsActive		  [1]
+	  IsActive		  [0]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [986.0, 396.0]
+	  Extents		  [1006.0, 444.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, 0.0]
 	}
 	Object {
 	  $ObjectID		  6
-	  IsActive		  [0]
+	  IsActive		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1"
-	  Extents		  [986.0, 396.0]
+	  Extents		  [990.0, 407.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [-121.0, 23.0]
 	}
@@ -77,9 +77,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gary"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 16 14:15:24 2015"
-  RTWModifiedTimeStamp	  356364805
-  ModelVersionFormat	  "1.%<AutoIncrement:251>"
+  LastModifiedDate	  "Mon Jul 13 16:42:38 2015"
+  RTWModifiedTimeStamp	  358706492
+  ModelVersionFormat	  "1.%<AutoIncrement:255>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -896,6 +896,14 @@ Model {
       InitialOutput	      "[]"
     }
     Block {
+      BlockType		      S-Function
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+      SFunctionDeploymentMode off
+      EnableBusSupport	      off
+    }
+    Block {
       BlockType		      SubSystem
       ShowPortLabels	      "FromPortIcon"
       Permissions	      "ReadWrite"
@@ -942,7 +950,7 @@ Model {
   }
   System {
     Name		    "mavsim_chap8"
-    Location		    [440, 318, 1482, 907]
+    Location		    [1852, 392, 2878, 944]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -956,7 +964,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "162"
+    SIDHighWatermark	    "165"
     Block {
       BlockType		      FromWorkspace
       Name		      "Altitude\nSequence (m)"
@@ -993,7 +1001,7 @@ Model {
       }
       System {
 	Name			"Autopilot"
-	Location		[440, 318, 1482, 907]
+	Location		[1844, 384, 2886, 973]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1144,6 +1152,18 @@ Model {
 	  DisplayOption		  "bar"
 	}
 	Block {
+	  BlockType		  S-Function
+	  Name			  "S-Function2"
+	  SID			  "163"
+	  Ports			  [1, 1]
+	  Position		  [275, 252, 335, 288]
+	  ZOrder		  20
+	  ShowName		  off
+	  FunctionName		  "SIL"
+	  Parameters		  "P.gravity, P.rho, P.sigma_accel, P.sigma_gyro, P.sigma_n_gps, P.sigma_e_gps, P.sigma_Vg_gps, P.sigma"
+	  "_course_gps, P.Ts"
+	}
+	Block {
 	  BlockType		  MATLABFcn
 	  Name			  "autopilot"
 	  SID			  "125"
@@ -1152,17 +1172,6 @@ Model {
 	  ZOrder		  -16
 	  MATLABFcn		  "autopilot(u,P)"
 	  OutputDimensions	  "4+12"
-	  SampleTime		  "P.Ts"
-	}
-	Block {
-	  BlockType		  MATLABFcn
-	  Name			  "estimate states\nfrom sensors"
-	  SID			  "126"
-	  Ports			  [1, 1]
-	  Position		  [275, 255, 335, 285]
-	  ZOrder		  -17
-	  MATLABFcn		  "estimate_states(u,P)"
-	  OutputDimensions	  "16"
 	  SampleTime		  "P.Ts"
 	}
 	Block {
@@ -1218,13 +1227,6 @@ Model {
 	  SrcPort		  1
 	  DstBlock		  "Mux1"
 	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  6
-	  SrcBlock		  "Mux2"
-	  SrcPort		  1
-	  DstBlock		  "estimate states\nfrom sensors"
-	  DstPort		  1
 	}
 	Line {
 	  ZOrder		  7
@@ -1298,8 +1300,8 @@ Model {
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  17
-	  SrcBlock		  "estimate states\nfrom sensors"
+	  ZOrder		  23
+	  SrcBlock		  "S-Function2"
 	  SrcPort		  1
 	  Points		  [25, 0]
 	  Branch {
@@ -1313,6 +1315,13 @@ Model {
 	    DstBlock		    "Goto4"
 	    DstPort		    1
 	  }
+	}
+	Line {
+	  ZOrder		  22
+	  SrcBlock		  "Mux2"
+	  SrcPort		  1
+	  DstBlock		  "S-Function2"
+	  DstPort		  1
 	}
       }
     }
@@ -1378,7 +1387,7 @@ Model {
       }
       System {
 	Name			"MAV"
-	Location		[625, 365, 1667, 954]
+	Location		[1828, 301, 2870, 890]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2041,7 +2050,7 @@ Model {
 	Annotation {
 	  SID			  "154"
 	  Name			  "Forces & Moments"
-	  Position		  [336, 94, 421, 108]
+	  Position		  [336, 94, 422, 108]
 	  InternalMargins	  [0, 0, 0, 0]
 	  FixedHeight		  off
 	  FixedWidth		  off
@@ -2050,7 +2059,7 @@ Model {
 	Annotation {
 	  SID			  "155"
 	  Name			  "States"
-	  Position		  [484, 31, 514, 45]
+	  Position		  [484, 31, 515, 45]
 	  InternalMargins	  [0, 0, 0, 0]
 	  FixedHeight		  off
 	  FixedWidth		  off
@@ -2397,7 +2406,7 @@ Model {
       }
       System {
 	Name			"draw aircraft"
-	Location		[625, 365, 1667, 954]
+	Location		[1844, 342, 2886, 931]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2723,7 +2732,7 @@ Model {
     Annotation {
       SID		      "156"
       Name		      "sensors"
-      Position		      [657, 142, 693, 156]
+      Position		      [657, 142, 694, 156]
       InternalMargins	      [0, 0, 0, 0]
       FixedHeight	      off
       FixedWidth	      off

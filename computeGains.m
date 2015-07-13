@@ -66,6 +66,7 @@
    P.pitch_ff = a_theta2/a_theta3;
    % P.K_theta_DC = P.pitch_kp*a_theta3/(a_theta2+P.pitch_kp*a_theta3);
    P.K_theta_DC = 1;  %%%%% With feedforward implemented P.K_theta_DC = 1 !!!
+   P.pitch_kd = .8*P.pitch_kd;
 
 % select gains for altitude loop
    zeta_altitude = 0.9;
