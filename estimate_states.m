@@ -82,7 +82,7 @@ function xhat = estimate_states(uu, P)
         xhat_a       = [0; 0];
         P_a          = (20*pi/180)^2*[1, 0; 0, 1];
         xhat_p       = [P.pn0; P.pe0; P.Va0; P.psi0; 0; 0; P.psi0];
-        P_p          = diag([3, 3, 1^2, (5*pi/180), 2^2, 2^2, (5*pi/180)]);
+        P_p          = diag([.03, .03, .1^2, (5*pi/180), .2^2, .22^2, (5*pi/180)]);
         y_gps_n_old  = -9999;
         y_gps_e_old  = -9999;
         y_gps_Vg_old = -9999;
@@ -238,6 +238,8 @@ function xhat = estimate_states(uu, P)
         |(y_gps_e~=y_gps_e_old)...
         |(y_gps_Vg~=y_gps_Vg_old)...
         |(y_gps_course~=y_gps_course_old),
+    
+        P_p
         % gps North position
         h_p = xhat_p(1);
         C_p = [1, 0, 0, 0, 0, 0, 0];
@@ -258,8 +260,8 @@ function xhat = estimate_states(uu, P)
         xhat_p = xhat_p + L_p*(y_gps_Vg - h_p);  
         % gps course
         % wrap course measurement
-        %while (y_gps_course - xhat_p(4))>pi, y_gps_course = y_gps_course - 2*pi; end
-        %while (y_gps_course - xhat_p(4))<-pi, y_gps_course = y_gps_course + 2*pi; end
+        while (y_gps_course - xhat_p(4))>pi, y_gps_course = y_gps_course - 2*pi; end
+        while (y_gps_course - xhat_p(4))<-pi, y_gps_course = y_gps_course + 2*pi; end
         h_p = xhat_p(4);
         C_p = [0, 0, 0, 1, 0, 0, 0];
         L_p = P_p*C_p'/(R_p(4,4)+C_p*P_p*C_p');
@@ -291,7 +293,7 @@ function xhat = estimate_states(uu, P)
             Vahat*cos(xhat_p(7)),...
             ];
         L_p = P_p*C_p'/(R_p(6,6)+C_p*P_p*C_p');
-        P_p = (eye(7)-L_p*C_p)*P_p;
+        P_p = (eye(7)-L_p*C_p)*P_p
         xhat_p = xhat_p + L_p*(0 - h_p);
 
         % update stored GPS signals

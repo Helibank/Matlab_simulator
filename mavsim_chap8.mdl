@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.255"
+    ComputedModelVersion    "1.258"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,7 +29,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [1844.0, 384.0, 1042.0, 589.0]
+      Location		      [1952.0, 326.0, 1042.0, 589.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -54,7 +54,7 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1006.0, 444.0]
+	  Extents		  [990.0, 407.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, 0.0]
 	}
@@ -63,7 +63,7 @@ Model {
 	  IsActive		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1"
-	  Extents		  [990.0, 407.0]
+	  Extents		  [1006.0, 444.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [-121.0, 23.0]
 	}
@@ -77,9 +77,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gary"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jul 13 16:42:38 2015"
-  RTWModifiedTimeStamp	  358706492
-  ModelVersionFormat	  "1.%<AutoIncrement:255>"
+  LastModifiedDate	  "Thu Jul 16 17:13:50 2015"
+  RTWModifiedTimeStamp	  358967630
+  ModelVersionFormat	  "1.%<AutoIncrement:258>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -193,7 +193,7 @@ Model {
 	  $ObjectID		  9
 	  Version		  "1.15.0"
 	  StartTime		  "0.0"
-	  StopTime		  "40"
+	  StopTime		  "80"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -950,7 +950,7 @@ Model {
   }
   System {
     Name		    "mavsim_chap8"
-    Location		    [1852, 392, 2878, 944]
+    Location		    [1952, 305, 2994, 894]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -964,7 +964,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "165"
+    SIDHighWatermark	    "166"
     Block {
       BlockType		      FromWorkspace
       Name		      "Altitude\nSequence (m)"
@@ -1001,7 +1001,7 @@ Model {
       }
       System {
 	Name			"Autopilot"
-	Location		[1844, 384, 2886, 973]
+	Location		[1952, 326, 2994, 915]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1109,7 +1109,6 @@ Model {
 	  SID			  "145"
 	  Position		  [450, 187, 480, 223]
 	  ZOrder		  -11
-	  CurrentSetting	  "0"
 	}
 	Block {
 	  BlockType		  Memory
@@ -1153,15 +1152,13 @@ Model {
 	}
 	Block {
 	  BlockType		  S-Function
-	  Name			  "S-Function2"
-	  SID			  "163"
+	  Name			  "S-Function1"
+	  SID			  "166"
 	  Ports			  [1, 1]
 	  Position		  [275, 252, 335, 288]
-	  ZOrder		  20
+	  ZOrder		  21
 	  ShowName		  off
-	  FunctionName		  "SIL"
-	  Parameters		  "P.gravity, P.rho, P.sigma_accel, P.sigma_gyro, P.sigma_n_gps, P.sigma_e_gps, P.sigma_Vg_gps, P.sigma"
-	  "_course_gps, P.Ts"
+	  FunctionName		  "MATLink"
 	}
 	Block {
 	  BlockType		  MATLABFcn
@@ -1300,8 +1297,8 @@ Model {
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  23
-	  SrcBlock		  "S-Function2"
+	  ZOrder		  31
+	  SrcBlock		  "S-Function1"
 	  SrcPort		  1
 	  Points		  [25, 0]
 	  Branch {
@@ -1317,10 +1314,10 @@ Model {
 	  }
 	}
 	Line {
-	  ZOrder		  22
+	  ZOrder		  29
 	  SrcBlock		  "Mux2"
 	  SrcPort		  1
-	  DstBlock		  "S-Function2"
+	  DstBlock		  "S-Function1"
 	  DstPort		  1
 	}
       }

@@ -29,7 +29,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [2040.0, 277.0, 924.0, 641.0]
+      Location		      [2040.0, 319.0, 924.0, 641.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -65,8 +65,8 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gary"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jul 08 10:52:06 2015"
-  RTWModifiedTimeStamp	  358253395
+  LastModifiedDate	  "Wed Jul 15 13:49:18 2015"
+  RTWModifiedTimeStamp	  358868723
   ModelVersionFormat	  "1.%<AutoIncrement:155>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
@@ -763,7 +763,7 @@ Model {
   }
   System {
     Name		    "simulation_options"
-    Location		    [2040, 277, 2964, 918]
+    Location		    [2040, 319, 2964, 960]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -783,7 +783,7 @@ Model {
       Name		      "S-Function1"
       SID		      "36"
       Ports		      [1, 1]
-      Position		      [475, 307, 535, 343]
+      Position		      [525, 307, 585, 343]
       ZOrder		      14
       ShowName		      off
       FunctionName	      "MATLink"
@@ -811,32 +811,15 @@ Model {
       OutputDimensions	      "16"
       SampleTime	      "P.Ts"
     }
-    Block {
-      BlockType		      MATLABFcn
-      Name		      "receiveControls"
-      SID		      "39"
-      Ports		      [1, 1]
-      Position		      [570, 310, 640, 340]
-      ZOrder		      15
-      MATLABFcn		      "receiveControls(u,P)"
-      OutputDimensions	      "4+12"
-    }
     Line {
       ZOrder		      17
       SrcBlock		      "S-Function1"
       SrcPort		      1
-      DstBlock		      "receiveControls"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      20
-      SrcBlock		      "receiveControls"
-      SrcPort		      1
-      Points		      [27, 0]
+      Points		      [30, 0]
     }
     Line {
       ZOrder		      21
-      Points		      [437, 325]
+      Points		      [487, 325]
       DstBlock		      "S-Function1"
       DstPort		      1
     }
