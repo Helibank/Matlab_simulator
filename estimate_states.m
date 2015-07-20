@@ -239,7 +239,6 @@ function xhat = estimate_states(uu, P)
         |(y_gps_Vg~=y_gps_Vg_old)...
         |(y_gps_course~=y_gps_course_old),
     
-        P_p
         % gps North position
         h_p = xhat_p(1);
         C_p = [1, 0, 0, 0, 0, 0, 0];
@@ -293,7 +292,7 @@ function xhat = estimate_states(uu, P)
             Vahat*cos(xhat_p(7)),...
             ];
         L_p = P_p*C_p'/(R_p(6,6)+C_p*P_p*C_p');
-        P_p = (eye(7)-L_p*C_p)*P_p
+        P_p = (eye(7)-L_p*C_p)*P_p;
         xhat_p = xhat_p + L_p*(0 - h_p);
 
         % update stored GPS signals

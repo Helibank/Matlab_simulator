@@ -55,7 +55,7 @@ P.k_omega = 0;
 
 % wind parameters
 P.wind_n = 0;%3;
-P.wind_e = 5;
+P.wind_e = 1;%5;
 P.wind_d = 0;
 P.L_wx = 1250;
 P.L_wy = 1750;

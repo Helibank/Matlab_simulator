@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.157"
+    ComputedModelVersion    "1.158"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,7 +29,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [2040.0, 340.0, 924.0, 641.0]
+      Location		      [2042.0, 370.0, 920.0, 630.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -53,7 +53,7 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[872.0, 461.0]
+	Extents			[888.0, 498.0]
 	ZoomFactor		[1.0]
 	Offset			[94.299999999999841, -3.7500000000000284]
       }
@@ -65,9 +65,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gary"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jul 17 15:15:43 2015"
-  RTWModifiedTimeStamp	  359046890
-  ModelVersionFormat	  "1.%<AutoIncrement:157>"
+  LastModifiedDate	  "Mon Jul 20 15:57:02 2015"
+  RTWModifiedTimeStamp	  359308594
+  ModelVersionFormat	  "1.%<AutoIncrement:158>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -763,7 +763,7 @@ Model {
   }
   System {
     Name		    "simulation_options"
-    Location		    [2040, 340, 2964, 981]
+    Location		    [2042, 370, 2962, 1000]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -791,16 +791,6 @@ Model {
     }
     Block {
       BlockType		      S-Function
-      Name		      "S-Function1"
-      SID		      "36"
-      Ports		      [1, 1]
-      Position		      [525, 307, 585, 343]
-      ZOrder		      14
-      ShowName		      off
-      FunctionName	      "MATLink"
-    }
-    Block {
-      BlockType		      S-Function
       Name		      "S-Function2"
       SID		      "44"
       Ports		      [1, 1]
@@ -808,20 +798,7 @@ Model {
       ZOrder		      19
       ShowName		      off
       FunctionName	      "SIL"
-      Parameters	      "P.gravity, P.rho, P.sigma_accel, P.sigma_gyro, P.sigma_n_gps, P.sigma_e_gps, P.sigma_Vg_gps, P"
-      ".sigma_course_gps, P.Ts"
-    }
-    Line {
-      ZOrder		      17
-      SrcBlock		      "S-Function1"
-      SrcPort		      1
-      Points		      [30, 0]
-    }
-    Line {
-      ZOrder		      21
-      Points		      [487, 325]
-      DstBlock		      "S-Function1"
-      DstPort		      1
+      Parameters	      "1.5708, 0.025, 0.05"
     }
     Line {
       ZOrder		      25
@@ -843,7 +820,7 @@ Model {
     }
     Line {
       ZOrder		      35
-      Points		      [484, 130; 0, 0; 41, 0]
+      Points		      [484, 130; 41, 0]
       DstBlock		      "Path Follow"
       DstPort		      1
     }
@@ -857,17 +834,6 @@ Model {
       HorizontalAlignment     "left"
       VerticalAlignment	      "top"
       ZOrder		      -1
-    }
-    Annotation {
-      SID		      "42"
-      Name		      "Hardware in the loop"
-      Position		      [287, 316, 381, 330]
-      InternalMargins	      [0, 0, 0, 0]
-      FixedHeight	      off
-      FixedWidth	      off
-      HorizontalAlignment     "left"
-      VerticalAlignment	      "top"
-      ZOrder		      -2
     }
     Annotation {
       SID		      "43"

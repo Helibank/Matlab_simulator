@@ -50,45 +50,41 @@ function out = path_follow(in,P)
   
   switch flag,
       case 1, % follow straight line path specified by r and q
-          %k_path = .05;
-          k_path = .09;
+          chi_infty = 90*pi/180;  % approach angle for large distance from straight-line path
+          k_path    = .025;        % proportional gain for path following
           
-          n = cross(q_path,[0; 0; 1])/norm(cross(q_path,[0; 0; 1]));
-          ei_p = [pn; pe; -h] - r_path;
-          s = ei_p - dot(ei_p,n)*n;
-          h_d =  -r_path(3) - sqrt(s(1)^2 + s(2)^2)*(q_path(3)/sqrt(q_path(1)^2 + q_path(2)^2));
-          
-          chi_q = atan2(q_path(2), q_path(1));
-          while(chi_q - chi < -pi)
-              chi_q = chi_q + 2*pi;
-          end
-          while(chi_q - chi > pi)
-              chi_q = chi_q - 2*pi;
-          end
-          e_py = -sin(chi_q)*(pn-r_path(1)) + cos(chi_q)*(pe-r_path(2));
-          % commanded course
-          chi_c = chi_q - atan(k_path*e_py);
+           % compute wrapped version of path angle
+          chi_q = atan2(q_path(2),q_path(1));
+          while (chi_q - chi < -pi), chi_q = chi_q + 2*pi; end
+          while (chi_q - chi > +pi), chi_q = chi_q - 2*pi; end
 
-          % commanded altitude 
+          path_error = -sin(chi_q)*(pn-r_path(1))+cos(chi_q)*(pe-r_path(2));
+          % heading command
+          chi_c = chi_q - chi_infty*2/pi*atan(k_path*path_error);
+
+          % desired altitude
+          h_d = -r_path(3)-sqrt((r_path(1)-pn)^2+(r_path(2)-pe)^2)*(q_path(3))/sqrt(q_path(1)^2+q_path(2)^2);
+          % commanded altitude is desired altitude plus integral error
           h_c = h_d;
            
       case 2, % follow orbit specified by c, rho, lam
-          % k_orbit   = 7; % proportional gain for orbit following
-          k_orbit   = 5;
-          
-          d = sqrt((pn - c_orbit(1))^2 + (pe - c_orbit(2))^2);
-          rho_o = atan2(pe-c_orbit(2),pn-c_orbit(1));
-          while(rho_o-chi < -pi)
-              rho_o = rho_o + 2*pi;
-          end
-          while(rho_o-chi > pi)
-              rho_o = rho_o - 2*pi;
-          end
-          % commanded course
-          chi_c = rho_o + lam_orbit*(pi/2 + atan(k_orbit*(d-rho_orbit)/rho_orbit));
+          k_orbit   = 0.05;       % proportional gain for orbit following
+          ki_orbit  = 0.0;       % integral gain for orbit following
+
+          d = sqrt((pn-c_orbit(1))^2+(pe-c_orbit(2))^2); % distance from orbit center
+          % compute wrapped version of angular position on orbit
+          varphi = atan2(pe-c_orbit(2),pn-c_orbit(1));   
+          while (varphi - chi < -pi), varphi = varphi + 2*pi; end
+          while (varphi - chi > +pi), varphi = varphi - 2*pi; end
+          % compute orbit error
+          orbit_error = d-rho_orbit;
+          % heading command
+          chi_c = varphi + lam_orbit*(pi/2 + atan(k_orbit*orbit_error));
          
-          % commanded altitude 
-          h_c = -c_orbit(3);
+          % commanded altitude is the height of the orbit
+          h_d = -c_orbit(3);
+          % commanded altitude is desired altitude plus integral error
+          h_c = h_d;
   end
   
   % command airspeed equal to desired airspeed
