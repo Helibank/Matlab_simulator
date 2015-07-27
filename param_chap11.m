@@ -55,7 +55,7 @@ P.k_omega = 0;
 
 % wind parameters
 P.wind_n = 0;%3;
-P.wind_e = 1;%5;
+P.wind_e = 0;%5;
 P.wind_d = 0;
 P.L_wx = 1250;
 P.L_wy = 1750;
@@ -138,4 +138,15 @@ P.sigma_h_gps = .40;
 P.sigma_Vg_gps = 0.05;
 P.sigma_course_gps = P.sigma_Vg_gps/P.Va;
 
+% number of waypoints in data structure
+P.size_waypoint_array = 100;
+P.R_min = 20;  % minimum turn radius
 
+% create random city map
+city_width      = 500;  % the city is of size (width)x(width)
+building_height = 50;   % maximum height of buildings
+%building_height = 1;   % maximum height of buildings (for camera)
+num_blocks      = 5;    % number of blocks in city
+street_width    = .8;   % percent of block that is street.
+P.pd0           = -100;  % initial height of MAV
+map = createWorld(city_width, building_height, num_blocks, street_width);

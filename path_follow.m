@@ -51,7 +51,7 @@ function out = path_follow(in,P)
   switch flag,
       case 1, % follow straight line path specified by r and q
           chi_infty = 90*pi/180;  % approach angle for large distance from straight-line path
-          k_path    = .025;        % proportional gain for path following
+          k_path    = .05;        % proportional gain for path following
           
            % compute wrapped version of path angle
           chi_q = atan2(q_path(2),q_path(1));
@@ -68,7 +68,7 @@ function out = path_follow(in,P)
           h_c = h_d;
            
       case 2, % follow orbit specified by c, rho, lam
-          k_orbit   = 0.05;       % proportional gain for orbit following
+          k_orbit   = 0.15;       % proportional gain for orbit following
           ki_orbit  = 0.0;       % integral gain for orbit following
 
           d = sqrt((pn-c_orbit(1))^2+(pe-c_orbit(2))^2); % distance from orbit center
