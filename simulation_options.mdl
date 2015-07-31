@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.158"
+    ComputedModelVersion    "1.160"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,7 +29,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [2042.0, 370.0, 920.0, 630.0]
+      Location		      [2046.0, 430.0, 912.0, 608.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -53,7 +53,7 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[888.0, 498.0]
+	Extents			[860.0, 428.0]
 	ZoomFactor		[1.0]
 	Offset			[94.299999999999841, -3.7500000000000284]
       }
@@ -65,9 +65,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gary"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jul 20 15:57:02 2015"
-  RTWModifiedTimeStamp	  359308594
-  ModelVersionFormat	  "1.%<AutoIncrement:158>"
+  LastModifiedDate	  "Fri Jul 31 12:04:01 2015"
+  RTWModifiedTimeStamp	  360165586
+  ModelVersionFormat	  "1.%<AutoIncrement:160>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -763,7 +763,7 @@ Model {
   }
   System {
     Name		    "simulation_options"
-    Location		    [2042, 370, 2962, 1000]
+    Location		    [2046, 430, 2958, 1038]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -777,57 +777,57 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "46"
+    SIDHighWatermark	    "48"
     Block {
       BlockType		      MATLABFcn
-      Name		      "Path Follow"
-      SID		      "46"
+      Name		      "Path Manager"
+      SID		      "48"
       Ports		      [1, 1]
-      Position		      [525, 112, 590, 148]
-      ZOrder		      21
-      MATLABFcn		      "path_follow(u,P)"
-      OutputDimensions	      "3"
+      Position		      [530, 115, 590, 145]
+      ZOrder		      25
+      MATLABFcn		      "path_manager(u,P)"
+      OutputDimensions	      "30"
       SampleTime	      "P.Ts"
     }
     Block {
       BlockType		      S-Function
-      Name		      "S-Function2"
-      SID		      "44"
+      Name		      "S-Function1"
+      SID		      "47"
       Ports		      [1, 1]
-      Position		      [525, 197, 585, 233]
-      ZOrder		      19
+      Position		      [530, 202, 590, 238]
+      ZOrder		      24
       ShowName		      off
       FunctionName	      "SIL"
-      Parameters	      "1.5708, 0.025, 0.05"
+      Parameters	      "P.R_min"
     }
     Line {
-      ZOrder		      25
-      SrcBlock		      "S-Function2"
-      SrcPort		      1
-      Points		      [30, 0]
-    }
-    Line {
-      ZOrder		      26
-      Points		      [486, 215]
-      DstBlock		      "S-Function2"
+      ZOrder		      44
+      Points		      [479, 220]
+      DstBlock		      "S-Function1"
       DstPort		      1
     }
     Line {
-      ZOrder		      32
-      SrcBlock		      "Path Follow"
+      ZOrder		      45
+      SrcBlock		      "S-Function1"
       SrcPort		      1
-      Points		      [30, 0]
+      Points		      [27, 0]
     }
     Line {
-      ZOrder		      35
-      Points		      [484, 130; 41, 0]
-      DstBlock		      "Path Follow"
+      ZOrder		      46
+      SrcBlock		      "Path Manager"
+      SrcPort		      1
+      Points		      [20, 0]
+    }
+    Line {
+      ZOrder		      47
+      Points		      [495, 130]
+      DstBlock		      "Path Manager"
       DstPort		      1
     }
     Annotation {
       SID		      "41"
       Name		      "Software in the loop"
-      Position		      [284, 209, 374, 223]
+      Position		      [284, 209, 375, 223]
       InternalMargins	      [0, 0, 0, 0]
       FixedHeight	      off
       FixedWidth	      off
