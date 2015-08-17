@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.154"
+    ComputedModelVersion    "1.155"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,7 +29,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [1843.0, 181.0, 932.0, 663.0]
+      Location		      [753.0, 405.0, 932.0, 663.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -53,7 +53,7 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[876.0, 472.0]
+	Extents			[878.0, 477.0]
 	ZoomFactor		[1.0]
 	Offset			[94.299999999999841, -3.7500000000000284]
       }
@@ -65,9 +65,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gary"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri May 29 17:54:47 2015"
-  RTWModifiedTimeStamp	  354822882
-  ModelVersionFormat	  "1.%<AutoIncrement:154>"
+  LastModifiedDate	  "Mon Aug 17 11:34:19 2015"
+  RTWModifiedTimeStamp	  361711775
+  ModelVersionFormat	  "1.%<AutoIncrement:155>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -763,7 +763,7 @@ Model {
   }
   System {
     Name		    "simulation_options"
-    Location		    [1843, 181, 2775, 844]
+    Location		    [753, 405, 1685, 1068]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -800,7 +800,8 @@ Model {
       Parameters	      "P.altitude_hold_zone,\nP.altitude_take_off_zone,\nP.K_theta_DC,\nP.Ts,\nP.tau,\nP.course_kp,\n"
       "P.course_kd,\nP.course_ki,\nP.roll_kp,\nP.roll_ki,\nP.roll_kd,\nP.pitch_kp,\nP.pitch_ki,\nP.pitch_kd,\nP.airspee"
       "d_pitch_kp,\nP.airspeed_pitch_ki,\nP.airspeed_pitch_kd,\nP.airspeed_throttle_kp,\nP.airspeed_throttle_ki,\nP.air"
-      "speed_throttle_kd,\nP.altitude_kp,\nP.altitude_ki,\nP.altitude_kd,\nP.beta_kp,\nP.beta_ki,\nP.beta_kd"
+      "speed_throttle_kd,\nP.altitude_kp,\nP.altitude_ki,\nP.altitude_kd,\nP.beta_kp,\nP.beta_ki,\nP.beta_kd, P.u_trim("
+      "1), P.u_trim(4)"
     }
     Block {
       BlockType		      MATLABFcn
