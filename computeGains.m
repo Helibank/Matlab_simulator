@@ -91,10 +91,10 @@
    zeta_airspeed_throttle = 0.707;
 %    wn_airspeed_throttle = 5;   % a value of 5 causes instability...
    wn_airspeed_throttle = 3;
-   P.airspeed_throttle_kp = (2*zeta_airspeed_throttle*wn_airspeed_throttle-a_Vt1)/a_Vt1;
+   P.airspeed_throttle_kp = .3*(2*zeta_airspeed_throttle*wn_airspeed_throttle-a_Vt1)/a_Vt1;
    P.airspeed_throttle_ki = wn_airspeed_throttle^2/a_Vt2;
    P.airspeed_throttle_kd = 0;
-   P.airspeed_throttle_integrator_gain = a_Vt1/a_Vt2/P.airspeed_throttle_ki;
+   %P.airspeed_throttle_integrator_gain = a_Vt1/a_Vt2/P.airspeed_throttle_ki;
  
 % gains for slideslip
    P.sideslip_kp = .1;
